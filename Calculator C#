@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization.Formatters;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _08._09._22
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string oper;
+            Console.WriteLine("Выберите операцию: +  -  *  / ");
+            oper = Console.ReadLine();
+            Console.WriteLine("Введите 2 числа: ");
+            int a = 0, b = 0;
+            a = Convert.ToInt32(Console.ReadLine());
+            b = Convert.ToInt32(Console.ReadLine());
+            switch (oper)
+            {
+                case "+":
+                    {
+                        Console.WriteLine(a + b);
+                        break;
+                    }
+                case "-":
+                    {
+                        Console.WriteLine (a - b);
+                        break;
+                    }
+                case "*":
+                    {
+                       Console.WriteLine (a * b);
+                        break;
+                    }
+                case "/":
+                    {
+                        Console.WriteLine(a / b);
+                        break;
+                    }
+            }
+            Console.ReadKey();
+        }
+    }
+}
