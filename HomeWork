@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ДЗ
+{
+    internal class Program
+    {
+        static int W = 120; //Размеры
+        static int H = 60;
+        static float x1 = -3.0f;
+        static float x2 = 3.0f;
+        static float y1 = -0.1f;
+        static float y2 = 1.2f;
+        static int II(float x)
+        {
+            return (int)(0 + (x - x1) * W / (x2 - x1));
+        }
+        static int JJ(float y)
+        {
+            return (int)(0 + (y - y2) * H / (y1 - y2));
+        }
+        static void Main(string[] args)
+        {
+            Console.SetWindowSize(W, H);
+            Console.Clear();
+            float h = (x2 - x1) / W;
+            float x = x1 - h;
+            for (int i = 0; i < H; ++i)
+            {
+                Console.SetCursorPosition(II(0), i);
+                Console.Write("|");
+            }
+            for (int i = 0; i < W; ++i)
+            {
+                x = x + h;
+                Console.SetCursorPosition(II(x), JJ(0));
+                Console.Write("-");
+                Console.SetCursorPosition(60, 55); //Точка пересечения X и Y
+                Console.Write("+");
+                float y = (float)Math.Exp(x/2); 
+                int b = JJ(y);
+                if ((b > -44))
+                {
+                    Console.SetCursorPosition(II(x) + 1, 44 + b);
+                    Console.Write("+");
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
